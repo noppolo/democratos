@@ -1,5 +1,5 @@
-DROP TABLE users if exist;
-CREATE TABLE users IF NOT EXIST (
+DROP TABLE utente if exists ;
+CREATE TABLE utente IF NOT EXISTS (
          id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
          FirstName  VARCHAR(100), 
          LastName VARCHAR(100), 
@@ -8,15 +8,15 @@ CREATE TABLE users IF NOT EXIST (
        );
 
 -- Popolazioni 
- DROP TABLE popolazione ;
- CREATE TABLE popolazione(
+ DROP TABLE popolazione if exists ;
+ CREATE TABLE popolazione IF NOT EXISTS (
  	id INT  NOT NULL AUTO_INCREMENT PRIMARY KEY, 	
  	descrizione VARCHAR(100)
  );
  
 -- Un utente a quale popolazione appartiente
- DROP TABLE appartenenza ;
- CREATE TABLE appartenenza(
+ DROP TABLE appartenenza if exists ;
+ CREATE TABLE appartenenza IF NOT EXISTS (
  	idUtente INT,
  	idPopolazione INT,
  	FOREIGN KEY idUtente REFERENCES utente(id),
@@ -24,8 +24,8 @@ CREATE TABLE users IF NOT EXIST (
  );
 
 -- Gestori di Assemblea
-DROP TABLE gdA ;
-CREATE TABLE gdA (	
+DROP TABLE gdA if exists ;
+CREATE TABLE gdA IF NOT EXISTS (	
 	dotName VARCHAR(32), -- nome in formato .1.2.3.
 	ip VARCHAR(16), -- indirizzo IP
 	votanti INT, -- numero di utenti votanti contenuti nel gdA (la somma dei figli e' il valore del padre)
@@ -33,8 +33,8 @@ CREATE TABLE gdA (
 );
 
 -- Proposte/richieste di legge 
-DROP TABLE proposte ;
-CREATE TABLE  proposte (
+DROP TABLE proposta if exists ;
+CREATE TABLE  proposta IF NOT EXISTS (	
 	   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 	   voti_si int default(0),
 	   voti_no int default(0),
@@ -47,8 +47,8 @@ CREATE TABLE  proposte (
 );
 
 -- Qui si conteggiano le motivazioni per cui gli utenti dicono "si/no/astenuto"
-DROP TABLE motivazioni;
-CREATE TABLE motivazioni(
+DROP TABLE motivazione if exists ;
+CREATE TABLE motivazione IF NOT EXISTS (
 	id INT,
 	idProposta INT,
 	-- In merito alla proposta "idProposta" questa motivazione che fa'?	
@@ -56,16 +56,16 @@ CREATE TABLE motivazioni(
 	-- Identifica il numero di votanti che sono concordi a tale motivazione. 
 	concordi INT,
 	descrizione VARCHAR(100)
-	FOREIGN KEY idProposta REFERENCES proposte(id)
+	FOREIGN KEY idProposta REFERENCES proposta(id)
 );
 
 -- Votazioni richieste ad un "gestore di assemblea".
-DROP TABLE votazioni_richieste;
-CREATE TABLE  votazioni_richieste(
+DROP TABLE votazioni_richieste if exists ;
+CREATE TABLE  votazioni_richieste IF NOT EXISTS (
 	idGdA int ,
 	idProposta int,
 	foreign key (idGdA) references gestore_di_assemblea(id),
-	foreign key (idProposta) references proposte(id)
+	foreign key (idProposta) references proposta(id)
 );
 
 -- Registra le votazioni effettuate, non il "si/no/astenuto"
