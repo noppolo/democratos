@@ -15,12 +15,14 @@ CREATE TABLE IF NOT EXISTS utente(
          username  VARCHAR(100),
          password  VARCHAR(100)          
        );
-
+INSERT INTO utente(FirstName,LastName,username,password) VALUES('N','R','nicola','aaa');
+       
 -- Popolazioni 
  CREATE TABLE IF NOT EXISTS popolazione (
  	id INT  NOT NULL AUTO_INCREMENT PRIMARY KEY, 	
  	descrizione VARCHAR(100)
  );
+ INSERT INTO popolazione(descrizione) VALUES ('condominio');
  
 -- Un utente a quale popolazione appartiente
  CREATE TABLE IF NOT EXISTS appartenenza (
@@ -31,6 +33,7 @@ CREATE TABLE IF NOT EXISTS utente(
  	ON DELETE CASCADE
  );
 
+ 
 -- Gestori di Assemblea
 CREATE TABLE IF NOT EXISTS gdA (	
 	dotName VARCHAR(32), -- nome in formato .1.2.3.
