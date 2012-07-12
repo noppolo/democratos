@@ -11,7 +11,7 @@ public class UserDAO {
 		Statement stmt = null;
 		String username = bean.getUsername();
 		String password = bean.getPassword();
-		String searchQuery = "select * from users where username='" + username
+		String searchQuery = "select * from utente where username='" + username
 				+ "' AND password='" + password + "'";
 		System.out.println("Your user name is " + username);
 		System.out.println("Your password is " + password);
@@ -31,9 +31,14 @@ public class UserDAO {
 			else if (more) {
 				String firstName = rs.getString("FirstName");
 				String lastName = rs.getString("LastName");
+				int idPopolazione= rs.getInt("idPopolazionePartenza");
+				int id=rs.getInt("id"); /* id dell'utente */
+				
 				System.out.println("Welcome " + firstName);
 				bean.setFirstName(firstName);
 				bean.setLastName(lastName);
+				bean.setIdPopolazione(idPopolazione);
+				bean.setId(id);
 				bean.setValid(true);
 			}
 		} catch (Exception ex) {

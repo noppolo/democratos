@@ -8,9 +8,9 @@ public class ConnectionManager {
 
 	public static Connection getConnection() {
 		try {
-			String url = "jdbc:mysql://localhost/democratos";
+			String url = "jdbc:mysql://localhost:3306/democratos";
 			// assuming "DataSource" is your DataSource name
-			Class.forName("com.mysql.jdbc.Driver ");
+			Class.forName("com.mysql.jdbc.Driver");
 			try {
 				con = DriverManager.getConnection(url, "dm_web", "dm_password");
 				// assuming your SQL Server's username is "username"

@@ -4,35 +4,41 @@ DROP TABLE if exists motivazione ;
 DROP TABLE if exists proposta ;
 DROP TABLE if exists gdA ;
 DROP TABLE if exists appartenenza ;
-DROP TABLE if exists popolazione ;
 DROP TABLE IF EXISTS utente;
+DROP TABLE if exists popolazione ;
 
---
-CREATE TABLE IF NOT EXISTS utente(
-         id INT NOT NULL AUTO_INCREMENT PRIMARY KEY, 
-         FirstName  VARCHAR(100), 
-         LastName VARCHAR(100), 
-         username  VARCHAR(100),
-         password  VARCHAR(100)          
-       );
-INSERT INTO utente(FirstName,LastName,username,password) VALUES('N','R','nicola','aaa');
-       
 -- Popolazioni 
  CREATE TABLE IF NOT EXISTS popolazione (
  	id INT  NOT NULL AUTO_INCREMENT PRIMARY KEY, 	
  	descrizione VARCHAR(100)
  );
  INSERT INTO popolazione(descrizione) VALUES ('condominio');
+ INSERT INTO popolazione(descrizione) VALUES ('italiana');
+ INSERT INTO popolazione(descrizione) VALUES ('roma');
  
+ --
+ 
+CREATE TABLE IF NOT EXISTS utente (
+	id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+	FirstName  VARCHAR(100),
+	LastName VARCHAR(100),
+	username  VARCHAR(100),
+	password  VARCHAR(100),
+	idPopolazionePartenza INT,
+	FOREIGN KEY (idPopolazionePartenza) REFERENCES popolazione(id)
+	);
+INSERT INTO utente(FirstName,LastName,username,password,idPopolazionePartenza) VALUES('N','R','nicola','aaa',1);
+       
 -- Un utente a quale popolazione appartiente
- CREATE TABLE IF NOT EXISTS appartenenza (
+ CREATE TABLE IF NOT EXISTS appartenenza(
  	idUtente INT,
  	idPopolazione INT,
  	FOREIGN KEY (idUtente) REFERENCES utente(id),
  	FOREIGN KEY (idPopolazione) REFERENCES popolazione(id)
  	ON DELETE CASCADE
  );
-
+INSERT INTO appartenenza(idUtente,idPopolazione) VALUES (1,1);
+INSERT INTO appartenenza(idUtente,idPopolazione) VALUES (1,3);
  
 -- Gestori di Assemblea
 CREATE TABLE IF NOT EXISTS gdA (	
