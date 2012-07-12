@@ -28,25 +28,26 @@ public class CambiaPopolazioneServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		/* Preleva il bean dell' utente */
-		HttpSession session = request.getSession(true);
-		UserBean user=(UserBean) session.getAttribute("currentSessionUser");
-			
-		/* e gli setta la nuova popolazione */
-		
-		int idNuovaPopolazione=(int)session.getAttribute("idNuovaPopolazione");		
-		user.setIdPopolazione(idNuovaPopolazione);
-		
-		/* rimettiamo il bean nella sessione e redirezioniamo l'utente */
-		session.setAttribute("currentSessionUser", user);
-		response.sendRedirect("guiGestionePopolazione.jsp");
-	}
+		}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		/* Preleva il bean dell' utente */
+		HttpSession session = request.getSession(true);
+		UserBean user=(UserBean) session.getAttribute("currentSessionUser");
+			
+		/* e gli setta la nuova popolazione */
+		String A = request.getParameter("idNuovaPopolazione");
+		int idNuovaPopolazione=Integer.parseInt(A);	
+		System.out.println(" Parsato in id: "+idNuovaPopolazione);
+		user.setPopolazione(idNuovaPopolazione);
+		
+		/* rimettiamo il bean nella sessione e redirezioniamo l'utente */
+		session.setAttribute("currentSessionUser", user);
+		response.sendRedirect("guiGestionePopolazione.jsp");
 	
 }
 

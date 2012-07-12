@@ -34,10 +34,10 @@ public class UserDAO {
 				int idPopolazione= rs.getInt("idPopolazionePartenza");
 				int id=rs.getInt("id"); /* id dell'utente */
 				
-				System.out.println("Welcome " + firstName);
+				System.out.println("Welcome " + firstName+ " from "+idPopolazione);
 				bean.setFirstName(firstName);
 				bean.setLastName(lastName);
-				bean.setIdPopolazione(idPopolazione);
+				bean.setPopolazione(idPopolazione);
 				bean.setId(id);
 				bean.setValid(true);
 			}

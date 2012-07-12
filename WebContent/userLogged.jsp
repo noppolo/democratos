@@ -13,7 +13,7 @@
 			UserBean currentUser = (UserBean) (session.getAttribute("currentSessionUser"));
 		%>
 		Welcome
-		<%=currentUser.getFirstName() + " " + currentUser.getLastName()%>			
+		<%=currentUser.getFirstName() + " " + currentUser.getLastName()+ " from "+currentUser.getPopolazione()%>			
 	<form action="GestionePopolazioneServlet">
 		<input type="submit" value="Cambia assemblea di appartenza">
 	</form>

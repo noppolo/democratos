@@ -87,6 +87,7 @@ public class UserBean {
 		boolean more = rs.next();
 		// if user does not exist set the isValid variable to false
 		if (more) {
+			this.idPopolazione=idNuovaPopolazione;
 			this.setPopolazione(rs.getString("descrizione"));
 		} else {
 			System.out
@@ -103,7 +104,4 @@ public class UserBean {
 		return idPopolazione;
 	}
 
-	public void setIdPopolazione(int idPopolazione) {
-		this.idPopolazione = idPopolazione;
-	}
 }

@@ -15,7 +15,7 @@
 		Welcome
 		<%=currentUser.getFirstName() + " "
 					+ currentUser.getLastName() + " you are "
-					+ currentUser.getPopolazione() + " "%>
+					+ currentUser.getPopolazione() + " "+ currentUser.getIdPopolazione()%>
 	</center>
 	<!--  Stampa tutte le popolazioni a cui si puo' iscrivere l'utente -->
 	<!-- select P.descrizione from popolazione P,appartenenza A where  A.idUtente = user.getId() and A.idPopolazione=P.id -->
@@ -23,11 +23,10 @@
 	<br>
 	<br>
 	
-<!-- 	<form method="post" name="form">
-		<table border="1"> -->
-		<form action="CambiaPopolazioneServlet">
-		<fieldset>
-			<legend>Popolazione di appartenenza</legend>
+
+		<H1>Popolazione di appartenenza</H1>>
+			
+		<form action="CambiaPopolazioneServlet" METHOD="post" >
 			<%				
 				int sumcount = 0;
 				Statement st;
@@ -42,12 +41,13 @@
 			<%
 				while (rs.next()) {
 			%>
-
-			<%=rs.getString(1)%> <input type="radio" name="idNuovaPopolazione" value="<%=rs.getString(2)%>"			
-			<% if (currentUser.getId() == rs.getInt(2)) { %>
+			
+			<input type="radio" name="idNuovaPopolazione" value="<%=rs.getString(2)%>"			
+			<% if ((currentUser.getIdPopolazione() - rs.getInt(2)) == 0 ) { %>
 			checked="checked"
 			<% }%>
-			/><br>
+			>
+			<%=rs.getString(1)%> <br>
 			<%
 				}
 			%>
@@ -55,8 +55,9 @@
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			%>
-		</fieldset>
+			%>			
+		
+		<input type="submit" value="Cambia">
 	</form>
 </body>
 
