@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+    
+<html>
+<head>
+<script language="JavaScript">
+    function function2() {
+        var m = document.all.myRadioButton.status; 
+        alert(m);
+    }
+    function function3() {
+        var m = document.all.myCheckBox.status; 
+        alert(m);
+    }
+</script>
+</head>
+<body>
+<input type="radio" id="myRadioButton" checked>Radio
+<input type="button" value="Check Status" onclick="function2();">
+<input type="checkbox" id="myCheckBox">Checkbox
+<input type="button" value="Check Status" onclick="function3();">
+</body>
+</html>
