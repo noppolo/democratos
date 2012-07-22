@@ -17,8 +17,8 @@
 	<form action="GestionePopolazioneServlet">
 		<input type="submit" value="Cambia assemblea di appartenza">
 	</form>
-	<form action="IscrizionePopolazioneServlet">
-		<input type="submit" value="Gestione assemblee di appartenza">
+	<form action="VisualizzaProposteServlet">
+		<input type="submit" value="Visualizza proposte ">
 	</form>
 	</center>
 	

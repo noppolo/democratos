@@ -24,7 +24,7 @@
 	<br>
 	
 
-		<H1>Popolazione di appartenenza</H1>>
+		<H1>Popolazione di appartenenza</H1>
 			
 		<form action="CambiaPopolazioneServlet" METHOD="post" >
 			<%				
@@ -55,10 +55,13 @@
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
-			%>			
-		
+			%>
 		<input type="submit" value="Cambia">
 	</form>
+	<form type="submit" action="userLogged.jsp">
+		<input type="submit" value="Torna a main">
+	</form>
+	
 </body>
 
 

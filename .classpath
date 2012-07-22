@@ -14,5 +14,15 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/mysql-connector-java-5.1.21/mysql-connector-java-5.1.21-bin.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/Jung/jung-jai-2.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/Jung/jung-visualization-2.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/Jung/jung-3d-2.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/Jung/jung-3d-demos-2.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/Jung/jung-algorithms-2.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/Jung/jung-api-2.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/Jung/jung-graph-impl-2.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/Jung/jung-io-2.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/Jung/jung-jai-samples-2.0.1-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Documents and Settings/workspace/Jung/jung-samples-2.0.1-sources.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
